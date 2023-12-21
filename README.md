@@ -26,7 +26,7 @@ Artisan::call('migrate');
 
 ### Solution
 
-
+[crud-basic](http://192.168.1.245/)
 
 
 ### Reference
