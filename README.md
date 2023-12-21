@@ -22,6 +22,30 @@ Use illuminate\Support\Facades\Artisan
 
 Artisan::call('migrate');
 
+# Config apache mettre ce code dans le fichier httpd.conf
+
+<IfModule ssl_module>
+SSLRandomSeed startup builtin
+SSLRandomSeed connect builtin
+</IfModule>
+
+<VirtualHost 192.168.1.245:80>
+    ServerName app.local
+    DocumentRoot "C:\Apache24\htdocs\lab-crud-basic\public\index.php"
+    <Directory "C:\Apache24\htdocs\lab-crud-basic\public\index.php">
+        Options FollowSymLinks
+        AllowOverride All
+        Require all granted
+        DirectoryIndex index.php
+    </Directory>
+</VirtualHost>
+
+
+LoadModule php_module "C:\php-8.1.25\php8apache2_4.dll"
+AddType application/x-httpd-php .php
+PHPIniDir "C:\php-8.1.25"
+
+# 
 ```
 
 ### Solution
